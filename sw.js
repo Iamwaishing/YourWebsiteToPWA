@@ -1,7 +1,7 @@
 // install
 self.addEventListener('install', e => {
 	e.waitUntil(
-		caches.open("static").then(cache => {
+		caches.open("v1").then(cache => {
 			return cache.addAll(["./",
 							"./index.js",
 							"./css/default.css",

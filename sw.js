@@ -1,4 +1,4 @@
-// install
+// install cache
 self.addEventListener('install', e => {
 	e.waitUntil(
 		caches.open("v1").then(cache => {
@@ -21,7 +21,7 @@ self.addEventListener('install', e => {
 	);
 });
 
-
+// request cache
 self.addEventListener('fetch', (event) => {
 	event.respondWith(
 	  caches.match(event.request).then((resp) => {
@@ -35,6 +35,7 @@ self.addEventListener('fetch', (event) => {
 	);
 });
 
+// update and delete old cache
 self.addEventListener('activate', (event) => {
 	var cacheKeeplist = ['v1'];
   

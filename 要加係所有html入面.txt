@@ -1,7 +1,0 @@
-// Insert below 3 code to head part
-
-<meta name="theme-color" content="#009688">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="YourIcon.png">
-
-<script src="./index.js" type="module"></script> // Insert it before the end of body

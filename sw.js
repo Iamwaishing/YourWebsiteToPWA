@@ -24,15 +24,17 @@ self.addEventListener('install', e => {
 });
 
 // request cache
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', function(event) {
 	event.respondWith(
-	fetch(event.request).then((response) => {
-		  return caches.open(cacheName).then((cache) => {
+	  caches.match(event.request).then(function(resp) {
+		return resp || fetch(event.request).then(function(response) {
+		  return caches.open(cacheName).then(function(cache) {
 			cache.put(event.request, response.clone());
 			return response;
 		  });
-		})
-	  );
+		});
+	  })
+	);
 });
 
 // update and delete old cache
